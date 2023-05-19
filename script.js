@@ -23,6 +23,12 @@ const minus=document.querySelector("#subtract").addEventListener("click",()=> pr
 const cross=document.querySelector("#multiply").addEventListener("click",()=> process= "*")
 const slash=document.querySelector("#divide").addEventListener("click",()=> process= "/")
 
+// seçilen sayıları tek tek bi array içine atıp daha sonra elemalara ulaşarak işlem yapsak?
+
+// ilk sayı seçilip process seçildiğinde 2. sayıyı seçmmek lazım 
+// while döngüsüyle bakılabilir sayılar bi listede toplanır ve ilk rakam oluşur
+// eğer process seçildiyse ikinci sayı için bir liste oluşturmaya başlanır
+
 
 
 let add = (x,y)=>{ 
