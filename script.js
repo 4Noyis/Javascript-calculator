@@ -2,20 +2,21 @@
 
 let process="";
 let num=0;
-let firstNum=10
+let firstNumArray=[]
 let secondNum=2
 let result=0;
 
-const zero=document.querySelector("#zero").addEventListener("click",()=> num=0)
-const one= document.querySelector("#one").addEventListener("click",()=> num=1)
-const two=document.querySelector("#two").addEventListener("click",()=> num=2)
-const three=document.querySelector("#three").addEventListener("click",()=>num=3)
-const four=document.querySelector("#four").addEventListener("click",()=> num=4)
-const five=document.querySelector("#five").addEventListener("click",()=> num=5)
-const six=document.querySelector("#six").addEventListener("click",()=> num=6)
-const seven=document.querySelector("#seven").addEventListener("click",()=>num=7)
-const eight=document.querySelector("#eight").addEventListener("click",()=>num=8)
-const nine=document.querySelector("#nine").addEventListener("click",()=> num=9)
+
+const zero=document.querySelector("#zero").addEventListener("click",()=>firstNumArray.push(0) )
+const one= document.querySelector("#one").addEventListener("click",()=>firstNumArray.push(1))
+const two=document.querySelector("#two").addEventListener("click",()=>firstNumArray.push(2))
+const three=document.querySelector("#three").addEventListener("click",()=>firstNumArray.push(3))
+const four=document.querySelector("#four").addEventListener("click",()=>firstNumArray.push(4)) 
+const five=document.querySelector("#five").addEventListener("click",()=>firstNumArray.push(5))
+const six=document.querySelector("#six").addEventListener("click",()=>firstNumArray.push(6))
+const seven=document.querySelector("#seven").addEventListener("click",()=>firstNumArray.push(7))
+const eight=document.querySelector("#eight").addEventListener("click",()=>firstNumArray.push(8))
+const nine=document.querySelector("#nine").addEventListener("click",()=>firstNumArray.push(9))
 const equal=document.querySelector("#equal")
 
 const plus=document.querySelector("#add").addEventListener("click",()=> process= "+")
@@ -57,8 +58,12 @@ function operate(process){
     }
     
 }
+for (let i = 0; i < firstNumArray.length; i++) {
+    const element = firstNumArray[i];
+    
+    
+}
 
 
-
-equal.addEventListener("click",()=> operate(process))
+equal.addEventListener("click",()=> console.log(firstNumArray))
 
