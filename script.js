@@ -1,69 +1,74 @@
 
 
-let process="";
-let num=0;
-let firstNumArray=[]
-let secondNum=2
+/* 
+
+    Dom ile tıklanan butonların numarasına göre bir değişkene string olarak ekledik bu stringi
+int değere dönüştür gerek olursa işlem yapmak için
+    Eğer işlem butonlarından birine tıklanırsa 2.sayı listesine atılır bir sonraki seçilen sayılar
+bu işlemleri bir function içinde tanımla.
+
+parseInt() -> string değer integer'a dönüştürülebilir
+
+    Tıklanan butonun textContentini ilk değişkene += ile eklersek birleşir mi?
+butonların hepsini tek bir class olarak birleşitr idlerini değiştir ve tıklandığında üstte yazan
+fonksiyona değerini gönderip ilk sayıyı oluştur
+
+    Bölümde ikinci sayı sıfır olursa hata değeri döndür
+
+while döngüsüyle bakılabilir sayılar bi listede toplanır ve ilk rakam oluşur
+eğer process seçildiyse ikinci sayı için bir liste oluşturmaya başlanır
+
+    herhangi bir işlem butonuna tıklandığı zaman current num değerini başka bir değişkene geçirip
+yenisini currentNuma yazdır ?
+
+*/
+
+
+
+
+let currentNum =''
+let firstNum=0
+let secondNum=0
+
+
 let result=0;
 
+const numberButtons = document.querySelectorAll(".btn-num") // foreach ile diğer elemanlara ulaşcaz
+const plusButton=document.getElementById("add")
+const minusButton=document.getElementById("subtract")
+const crossButton=document.getElementById("multiply")
+const slashButton=document.getElementById("divide")
+const equalbutton=document.getElementById("equal")
 
-const zero=document.querySelector("#zero").addEventListener("click",()=>firstNumArray.push(0) )
-const one= document.querySelector("#one").addEventListener("click",()=>firstNumArray.push(1))
-const two=document.querySelector("#two").addEventListener("click",()=>firstNumArray.push(2))
-const three=document.querySelector("#three").addEventListener("click",()=>firstNumArray.push(3))
-const four=document.querySelector("#four").addEventListener("click",()=>firstNumArray.push(4)) 
-const five=document.querySelector("#five").addEventListener("click",()=>firstNumArray.push(5))
-const six=document.querySelector("#six").addEventListener("click",()=>firstNumArray.push(6))
-const seven=document.querySelector("#seven").addEventListener("click",()=>firstNumArray.push(7))
-const eight=document.querySelector("#eight").addEventListener("click",()=>firstNumArray.push(8))
-const nine=document.querySelector("#nine").addEventListener("click",()=>firstNumArray.push(9))
-const equal=document.querySelector("#equal")
+numberButtons.forEach((button)=>
+    button.addEventListener('click',()=>appendNumber(button.textContent))    
+)
 
-const plus=document.querySelector("#add").addEventListener("click",()=> process= "+")
-const minus=document.querySelector("#subtract").addEventListener("click",()=> process= "-")
-const cross=document.querySelector("#multiply").addEventListener("click",()=> process= "*")
-const slash=document.querySelector("#divide").addEventListener("click",()=> process= "/")
-
-// seçilen sayıları tek tek bi array içine atıp daha sonra elemalara ulaşarak işlem yapsak?
-
-// ilk sayı seçilip process seçildiğinde 2. sayıyı seçmmek lazım 
-// while döngüsüyle bakılabilir sayılar bi listede toplanır ve ilk rakam oluşur
-// eğer process seçildiyse ikinci sayı için bir liste oluşturmaya başlanır
+function appendNumber(number){
+    currentNum+=number
+}
 
 
 
-let add = (x,y)=>{ 
+
+function add(x,y){
     return x+y
 }
-let subtract = (x,y)=>{
+function subtract(x,y){
     return x-y
 }
-let multiply = (x,y)=>{
+function multiply(x,y){
     return x*y
 }
-let divide = (x,y)=>{
+function divide(x,y){
     return x/y
 }
 
 
-function operate(process){
-    if(process==="+"){
-        console.log(add(firstNum,secondNum));
-    } if(process==="-"){
-        console.log(subtract(firstNum,secondNum));
-    } if(process==="*"){
-        console.log(multiply(firstNum,secondNum));
-    } if(process==="/"){
-        console.log(divide(firstNum,secondNum));
-    }
+function operate (opetator, x, y){
     
-}
-for (let i = 0; i < firstNumArray.length; i++) {
-    const element = firstNumArray[i];
-    
-    
+
 }
 
-
-equal.addEventListener("click",()=> console.log(firstNumArray))
+equal.addEventListener("click",()=> console.log(parseInt(currentNum)))
 
