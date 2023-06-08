@@ -2,8 +2,10 @@ body{
     display: block;
     text-align: center;
     align-items: center;
+    
 }
 
 div{
+    
     border: black;
 }
