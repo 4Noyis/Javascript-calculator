@@ -49,10 +49,20 @@ function appendNumber(number){
 }
 
 
+function operation(){
+    firstNum+=parseInt(currentNum)
+    currentNum=''
+    console.log(firstNum);
+    console.log(currentNum);
+}
+
+// her işlem sembolüne tıklandığında currentNum değişkenini ana değişkene istenilen işlemle ekle çarp böl 
 
 
 function add(x,y){
+    console.log(x+=y);
     return x+y
+    
 }
 function subtract(x,y){
     return x-y
@@ -64,11 +74,10 @@ function divide(x,y){
     return x/y
 }
 
-
 function operate (opetator, x, y){
     
 
 }
-
-equal.addEventListener("click",()=> console.log(parseInt(currentNum)))
+plusButton.addEventListener('click',()=> add(firstNum,currentNum))
+equal.addEventListener("click",()=> operation())
 
