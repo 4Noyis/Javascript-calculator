@@ -25,44 +25,66 @@ yenisini currentNuma yazdır ?
 
 
 
-
-let currentNum =''
-let firstNum=0
-let secondNum=0
-
-
+let firstOperand=''
+let secondOperand=''
+let currentOperation=null
 let result=0;
 
+
+const screen=document.querySelector(".screen")
 const numberButtons = document.querySelectorAll(".btn-num") // foreach ile diğer elemanlara ulaşcaz
-const plusButton=document.getElementById("add")
-const minusButton=document.getElementById("subtract")
-const crossButton=document.getElementById("multiply")
-const slashButton=document.getElementById("divide")
-const equalbutton=document.getElementById("equal")
+const operatorsButtons = document.querySelectorAll(".btn-operator")
+const equalButton= document.querySelector(".btn-equal")
+const clearButton=document.querySelector(".btn-clear")
+const deleteButton=document.querySelector(".btn-delete")
+const pointButton=document.querySelector(".btn-point")
+
+
 
 numberButtons.forEach((button)=>
     button.addEventListener('click',()=>appendNumber(button.textContent))    
 )
+operatorsButtons.forEach((button)=>
+    button.addEventListener('click',()=>appendOperator(button.textContent))
+)
+
 
 function appendNumber(number){
-    currentNum+=number
+    if(screen.textContent==="0") resetScreen()
+    screen.textContent+=number
+    
+}
+function resetScreen(){
+    screen.textContent=""
+}
+function appendOperator(operator){
+    if(currentOperation !==null) evaluate();
+    firstOperand=screen.textContent
+    currentOperation=operator
 }
 
 
-function operation(){
-    firstNum+=parseInt(currentNum)
-    currentNum=''
-    console.log(firstNum);
-    console.log(currentNum);
+function evaluate(){
+    if(currentOperation ===null){
+        return
+    }
+    if(currentOperation === "/" && screen.textContent==="0"){
+        alert("can't divide by 0")
+        clear()
+        return
+    }
+    
 }
+ 
 
-// her işlem sembolüne tıklandığında currentNum değişkenini ana değişkene istenilen işlemle ekle çarp böl 
-
+function setOperation(operator){
+    currentOperation=operator
+    screen.textContent +=operator
+    return currentOperation
+}
 
 function add(x,y){
-    console.log(x+=y);
     return x+y
-    
 }
 function subtract(x,y){
     return x-y
@@ -73,9 +95,18 @@ function multiply(x,y){
 function divide(x,y){
     return x/y
 }
+console.log(currentOperation);
 
-function operate (opetator, x, y){
-    
+function operate (operator, x, y){
+    if(operator ='+'){
+        return add(x,y)
+    }if(operator ='-'){
+        return subtract(x,y)
+    }if(operator ='*'){
+        return multiply(x,y)
+    }if(operator ='/'){
+        return add(x,y)
+    }
 
 }
 plusButton.addEventListener('click',()=> add(firstNum,currentNum))
