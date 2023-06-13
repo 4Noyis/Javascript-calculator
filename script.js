@@ -1,27 +1,5 @@
 
-
-/* 
-
-    Dom ile tıklanan butonların numarasına göre bir değişkene string olarak ekledik bu stringi
-int değere dönüştür gerek olursa işlem yapmak için
-    Eğer işlem butonlarından birine tıklanırsa 2.sayı listesine atılır bir sonraki seçilen sayılar
-bu işlemleri bir function içinde tanımla.
-
-parseInt() -> string değer integer'a dönüştürülebilir
-
-    Tıklanan butonun textContentini ilk değişkene += ile eklersek birleşir mi?
-butonların hepsini tek bir class olarak birleşitr idlerini değiştir ve tıklandığında üstte yazan
-fonksiyona değerini gönderip ilk sayıyı oluştur
-
-    Bölümde ikinci sayı sıfır olursa hata değeri döndür
-
-while döngüsüyle bakılabilir sayılar bi listede toplanır ve ilk rakam oluşur
-eğer process seçildiyse ikinci sayı için bir liste oluşturmaya başlanır
-
-    herhangi bir işlem butonuna tıklandığı zaman current num değerini başka bir değişkene geçirip
-yenisini currentNuma yazdır ?
-
-*/
+/* */
 
 
 
@@ -51,7 +29,7 @@ operatorsButtons.forEach((button)=>
     button.addEventListener('click',()=>appendOperator(button.textContent))
 )
 
-
+// Kullanıcı sayı seçtiğinde ekranı günceller
 function appendNumber(number){
     if(screen.textContent==="0" || shouldResetScreen){
         resetScreen()
@@ -59,11 +37,14 @@ function appendNumber(number){
     screen.textContent+=number
     
 }
+
+// Ekranı sıfırla
 function resetScreen(){
     screen.textContent=""
     shouldResetScreen=false
 }
 
+// Ekranı ve değişkenleri sıfırlar
 function clear(){
     screen.textContent="0";
     firstOperand=""
@@ -71,6 +52,7 @@ function clear(){
     currentOperation= null
 }
 
+// nokta ekleme
 function appendPoint(){
     if(shouldResetScreen){
         resetScreen()
@@ -83,10 +65,12 @@ function appendPoint(){
     screen.textContent+="."
 }
 
+// son rakamı siler
 function deleteNumber(){
     screen.textContent=screen.textContent.toString().slice(0,-1)
 }
 
+// İşlem seçtiğinde ekranı günceller ve sonraki girilecek sayılar için ekranı sıfırlar
 function appendOperator(operator){
     if(currentOperation !==null){
         evaluate();
@@ -96,7 +80,7 @@ function appendOperator(operator){
     shouldResetScreen= true
 }
 
-
+// İşlem tamamlandığında çağrılır. İlgili işlem fonksiyonunu(oparete) çağırır ve sonucu ekrana yazar
 function evaluate(){
     if(currentOperation ===null||shouldResetScreen){
         return
@@ -112,12 +96,13 @@ function evaluate(){
     )
     currentOperation= null
 }
- 
+
+//sonuçların 3 ondalık basamağa yuvarlanmasını sağlar
 function roundResult(number){
     return Math.round(number*1000)/1000;
 }
 
-
+// matematiksel işlemler
 function add(x,y){
     return x+y
 }
@@ -132,6 +117,7 @@ function divide(x,y){
 }
 
 
+// iki sayıyı ve operatörü alır yukardaki matematiksel işlemlerden hangisi operatörler uyumluysa çağırır
 function operate (operator, x, y){
     x=Number(x)
     y=Number(y)
