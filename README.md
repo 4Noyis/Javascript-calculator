@@ -1,3 +1,3 @@
 # javascript-calculator
 
-live preview -> https://4noyis.github.io/Javascript-calculator/
+live preview -> <a href="https://4noyis.github.io/Javascript-calculator/">Demo</a>
